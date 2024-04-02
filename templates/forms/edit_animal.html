@@ -1,0 +1,40 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Edit Animal{% endblock %}
+{% block content %}
+<div class="form-wrapper">
+  <form class="form" method="post" action="/animals/{{ animal.id }}/edit?_method=PATCH">
+    <input type="hidden" name="_method" value="PATCH">
+    <h3 class="form-heading">Edit animal <em>{{ animal.genus }} {{ animal.specificepithet }}</em> <a href="{{ url_for('index') }}" title="Back to homepage"><i class="fa fa-home pull-right"></i></a></h3>
+    <div class="form-group">
+      <label for="genus">Genus</label>
+      {{ form.genus(class_ = 'form-control', autofocus = true, value=animal.genus) }}
+    </div>
+    <div class="form-group">
+      <label for="specificepithet">Species</label>
+      {{ form.specificepithet(class_ = 'form-control', value=animal.specificepithet) }}
+    </div>
+    <div class="form-group">
+      <label for="sciname">Sci Name</label>
+      {{ form.sciname(class_ = 'form-control', value=animal.sciname) }}
+    </div>
+    <div class="form-group">
+      <label for="maincommonname">Common Name</label>
+      {{ form.maincommonname(class_ = 'form-control', value=animal.maincommonname) }}
+    </div>
+    <div class="form-group">
+      <label for="taxonorder">Order</label>
+      {{ form.taxonorder(class_ = 'form-control', value=animal.taxonorder) }}
+    </div>
+    <div class="form-group">
+      <label for="biogeographicrealm">Biogeo Realm</label>
+      {{ form.biogeographicrealm(class_ = 'form-control', value=animal.biogeographicrealm) }}
+    </div>
+    <div class="form-group">
+      <label for="iucnstatus">IUCN Status</label>
+      {{ form.iucnstatus(class_ = 'form-control', value=animal.iucnstatus) }}
+    </div>
+
+    <input type="submit" value="Edit Animal" class="btn btn-primary btn-lg btn-block">
+  </form>
+</div>
+{% endblock %}

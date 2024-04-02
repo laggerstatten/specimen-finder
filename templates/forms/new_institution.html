@@ -1,0 +1,34 @@
+{% extends 'layouts/main.html' %}
+{% block title %}New Institution{% endblock %}
+{% block content %}
+<div class="form-wrapper">
+  <form method="post" class="form">
+    <h3 class="form-heading">List a new institution</h3>
+    <div class="form-group">
+      <label for="name">Name</label>
+      {{ form.name(class_ = 'form-control', autofocus = true) }}
+    </div>
+    <div class="form-group">
+      <label for="street">Address</label>
+      {{ form.street(class_ = 'form-control', autofocus = true) }}
+    </div>
+    <div class="form-group">
+      <label for="longitude">Longitude</label>
+      {{ form.longitude(class_ = 'form-control') }}
+    </div>
+    <div class="form-group">
+      <label for="latitude">Latitude</label>
+      {{ form.latitude(class_ = 'form-control') }}
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      {{ form.city(class_ = 'form-control') }}
+    </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      {{ form.state(class_ = 'form-control') }}
+    </div>
+    <input type="submit" value="Create Institution" class="btn btn-primary btn-lg btn-block">
+  </form>
+</div>
+{% endblock %}

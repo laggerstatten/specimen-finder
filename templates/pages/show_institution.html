@@ -1,0 +1,38 @@
+{% extends 'layouts/main.html' %}
+{% block title %}{{ institution.name }} | Institution{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-sm-6">
+        <h1 class="monospace">
+            {{ institution.name }}
+        </h1>
+        <p class="subtitle">
+            ID: {{ institution.id }}
+        </p>
+        <div class="info">
+            <p>Address: {{ institution.street }}</p>
+            <p>Longitude: {{ institution.longitude }}</p>
+            <p>Latitude: {{ institution.latitude }}</p>
+            <p>City: {{ institution.city }}</p>
+            <p>State: {{ institution.state }}</p>
+        </div>
+    </div>
+</div>
+<section>
+    <div class="row">
+        <div class="col-sm-6">
+            <button>
+                <a href="{{ url_for('edit_institution', institution_id=institution.id) }}">
+                    Edit institution
+                </a>
+            </button>
+            <button>
+                <a href="{{ url_for('delete_institution', institution_id=institution.id) }}">
+                    Delete institution
+                </a>
+            </button>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

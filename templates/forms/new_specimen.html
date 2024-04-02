@@ -1,0 +1,30 @@
+{% extends 'layouts/main.html' %}
+{% block title %}New Specimen Listing{% endblock %}
+{% block content %}
+<div class="form-wrapper">
+  <form method="post" class="form">
+    <h3 class="form-heading">List a new specimen</h3>
+    <div class="form-group">
+      <label for="institution">Institution</label>
+      <select class="form-control" name="institution_id">
+        {%for institution in institutions %}
+        <option value="{{institution.id}}"> {{institution.name}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="animal">Animal</label>
+      <select class="form-control" name="animal_id">
+        {%for animal in animals %}
+        <option value="{{animal.id}}"> {{animal.genus}}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="sightingdate">Sighting Date</label>
+      {{ form.sightingdate(class_ = 'form-control', placeholder='YYYY-MM-DD HH:MM', autofocus = true) }}
+    </div>
+    <input type="submit" value="Create Specimen" class="btn btn-primary btn-lg btn-block">
+  </form>
+</div>
+{% endblock %}

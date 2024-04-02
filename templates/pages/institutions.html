@@ -1,0 +1,48 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Specimen Finder | Institutions{% endblock %}
+{% block content %}
+<ul class="items">
+    {% for institution in institutions %}
+    <li id="{{ institution.id }}" style="display: flex;">
+        <a href="/institutions/{{ institution.id }}">
+            <div class="item">
+                <h5>{{ institution.name }}</h5>
+                <p>Address: {{ institution.street }}</p>
+                <p>Longitude: {{ institution.longitude }}</p>
+                <p>Latitude: {{ institution.latitude }}</p>
+                <p>City: {{ institution.city }}</p>
+                <p>State: {{ institution.state }}</p>
+            </div>
+        </a>
+        <button class="delete-button" data-id="{{ institution.id }}">&cross;</button>
+    </li>
+    {% endfor %}
+</ul>
+
+<script>
+    const deleteBtns = document.querySelectorAll('.delete-button');
+    for (let i = 0; i < deleteBtns.length; i++) {
+        const btn = deleteBtns[i];
+        btn.onclick = function (e) {
+            const institutionId = e.target.dataset['id'];
+            fetch('/institutions/' + institutionId, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                }
+            })
+                .then(response => {
+                    if (response.ok) {
+                        window.location.href = "/institutions";
+                    } else {
+                        throw new Error('Failed to delete institution');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    // You can add error handling here if needed
+                });
+        }
+    }
+</script>
+{% endblock %}

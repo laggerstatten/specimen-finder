@@ -1,0 +1,23 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Specimen Finder | Animals Search{% endblock %}
+{% block content %}
+<h3>Number of search results for "{{ search_term }}": {{ results.count }}</h3>
+<ul class="items">
+    {% for animal in results.data %}
+    <li>
+        <a href="/animals/{{ animal.id }}">
+            <div class="item">
+                <h5>Animal ID: {{ animal.id }}</h5>
+                <p>Genus: {{ animal.genus }}</p>
+                <p>Specific Epithet: {{ animal.specificepithet }}</p>
+                <p>Sci Name: {{ animal.sciname }}</p>
+                <p>Common Name: {{ animal.maincommonname }}</p>
+                <p>Order: {{ animal.taxonorder }}</p>
+                <p>Biogeo Realm: {{ animal.biogeographicrealm }}</p>
+                <p>IUCN Status: {{ animal.iucnstatus }}</p>
+            </div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

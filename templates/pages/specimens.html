@@ -1,0 +1,20 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Specimen Finder | Specimen List{% endblock %}
+{% block content %}
+<ul class="items">
+    {% for specimen in specimens %}
+    <li>
+        <a href="/specimens/{{ specimen.id }}">
+            <div class="item">
+                <h5>Specimen ID: {{ specimen.specimen_id }}</h5>
+                <p>Institution ID: {{ specimen.institution_id }}</p>
+                <p>Institution Name: {{ specimen.institution_name }}</p>
+                <p>Animal ID: {{ specimen.animal_id }}</p>
+                <p>Animal Common Name: {{ specimen.animal_maincommonname }}</p>
+                <p>Sighting Date: {{ specimen.sightingdate }}</p>
+            </div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

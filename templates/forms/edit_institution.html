@@ -1,0 +1,35 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Edit Institution{% endblock %}
+{% block content %}
+<div class="form-wrapper">
+  <form class="form" method="post" action="/institutions/{{institution.id}}/edit?_method=PATCH">
+    <input type="hidden" name="_method" value="PATCH">
+    <h3 class="form-heading">Edit institution <em>{{ institution.name }}</em></h3>
+    <div class="form-group">
+      <label for="name">Name</label>
+      {{ form.name(class_ = 'form-control', autofocus = true, value=institution.name) }}
+    </div>
+    <div class="form-group">
+      <label for="street">Address</label>
+      {{ form.street(class_ = 'form-control', value=institution.street) }}
+    </div>
+    <div class="form-group">
+      <label for="longitude">Longitude</label>
+      {{ form.longitude(class_ = 'form-control', value=institution.longitude) }}
+    </div>
+    <div class="form-group">
+      <label for="latitude">Latitude</label>
+      {{ form.latitude(class_ = 'form-control', value=institution.latitude) }}
+    </div>
+    <div class="form-group">
+      <label for="city">City</label>
+      {{ form.city(class_ = 'form-control', value=institution.city) }}
+    </div>
+    <div class="form-group">
+      <label for="state">State</label>
+      {{ form.state(class_ = 'form-control', value=institution.state) }}
+    </div>
+    <input type="submit" value="Edit Institution" class="btn btn-primary btn-lg btn-block">
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'layouts/main.html' %}
+{% block title %}New Animal{% endblock %}
+{% block content %}
+<div class="form-wrapper">
+  <form method="post" class="form">
+    <h3 class="form-heading">List a new animal <a href="{{ url_for('index') }}" title="Back to homepage"><i class="fa fa-home pull-right"></i></a></h3>
+    <div class="form-group">
+      <label for="genus">Genus</label>
+      {{ form.genus(class_ = 'form-control', autofocus = true) }}
+    </div>
+    <div class="form-group">
+      <label for="specificepithet">Species</label>
+      {{ form.specificepithet(class_ = 'form-control', autofocus = true) }}
+    </div>
+    <div class="form-group">
+      <label for="sciname">Sci Name</label>
+      {{ form.sciname(class_ = 'form-control', autofocus = true) }}
+    </div>
+    <div class="form-group">
+      <label for="maincommonname">Common Name</label>
+      {{ form.maincommonname(class_ = 'form-control', autofocus = true) }}
+    </div>
+    <div class="form-group">
+      <label for="taxonorder">Order</label>
+      {{ form.taxonorder(class_ = 'form-control', autofocus = true) }}
+    </div>
+    <div class="form-group">
+      <label for="biogeographicrealm">Biogeo Realm</label>
+      {{ form.biogeographicrealm(class_ = 'form-control', autofocus = true) }}
+    </div>
+    <div class="form-group">
+      <label for="iucnstatus">IUCN Status</label>
+      {{ form.iucnstatus(class_ = 'form-control', autofocus = true) }}
+    </div>
+
+    <input type="submit" value="Create Animal" class="btn btn-primary btn-lg btn-block">
+  </form>
+</div>
+{% endblock %}

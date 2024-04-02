@@ -1,0 +1,29 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Specimen Finder{% endblock %}
+{% block content %}
+<!-- <div class="login-box auth0-box before">
+    <a class="btn btn-primary btn-lg btn-login btn-block" href="/login">Log In</a>
+</div> -->
+<div class="row">
+    <div class="col-sm-6">
+        <h1>Specimen Finder</h1>
+        <p class="lead">Search for or Add New Animals or Institutions</p>
+        <h3>
+            <a href="/animals"><button class="btn btn-primary btn-lg">Find an animal</button></a>
+            <a href="/animals/create"><button class="btn btn-default btn-lg">Post an animal</button></a>
+        </h3>
+        <h3>
+            <a href="/institutions"><button class="btn btn-primary btn-lg">Find an institution</button></a>
+            <a href="/institutions/create"><button class="btn btn-default btn-lg">Post an institution</button></a>
+        </h3>
+        <p class="lead">Log and Search Animal Sightings at Different Institutions</p>
+        <h3>
+            <a href="/specimens/create"><button class="btn btn-primary btn-lg">Post a specimen</button></a>
+        </h3>
+    </div>
+    <div class="col-sm-6 hidden-sm hidden-xs">
+        <!-- TODO change photo-->
+        <img id="front-splash" src="{{ url_for('static',filename='img/front-splash.jpg') }}" alt="Front Photo of Musical Band" />
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'layouts/main.html' %}
+{% block title %}Specimen Finder | Institutions Search{% endblock %}
+{% block content %}
+<h3>Number of search results for "{{ search_term }}": {{ results.count }}</h3>
+<ul class="items">
+    {% for institution in results.data %}
+    <li>
+        <a href="/institutions/{{ institution.id }}">
+            <div class="item">
+                <h5>{{ institution.name }}</h5>
+                <p>Address: {{ institution.street }}</p>
+                <p>Longitude: {{ institution.longitude }}</p>
+                <p>Latitude: {{ institution.latitude }}</p>
+                <p>City: {{ institution.city }}</p>
+                <p>State: {{ institution.state }}</p>
+            </div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
