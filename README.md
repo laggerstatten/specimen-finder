@@ -72,7 +72,7 @@ Password: ?@j)E%Se5MU%75-
 
 To access this app's API, a user needs to be authenticated. Logging in with approved credentials generates a JWT (JSON Web Token) that grants the user access based on their role's permissions.
 
-The speciment finder app API includes the following endpoints. Below is an overview of their expected behavior.
+The specimen finder app API includes the following endpoints. Below is an overview of their expected behavior.
 
 #### GET /login
 - Redirects the user to the Auth0 login page, where the user can log in or sign up
